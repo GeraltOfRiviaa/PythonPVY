@@ -8,7 +8,10 @@ bodies = 0
 answer = input('Welcome! Would you like to reach the moon (yes - no)? :').strip
 while answer not in ['yes', 'no']:
     answer = input('Welcome! Would you like to reach the moon (yes - no)? :')
-
+    if answer == 'no':
+        print('Oh well thats bad I guess :/')
+        print('Goodbye!')
+        break
 if answer == 'yes':
     print('Alright lets get to it!!!')
     name = input('What is your name? : ').strip()
@@ -22,6 +25,4 @@ if answer == 'yes':
     print('Sorry I meant REACH :D')
     print('Hahahahahahahhahahah')
 
-elif answer == 'no':
-    print('Oh well thats bad I guess :/')
-    print('Goodbye!')
+
