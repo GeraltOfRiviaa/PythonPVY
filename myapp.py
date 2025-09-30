@@ -6,7 +6,7 @@ to reach the moon from earth.
 distance = 384400
 bodies = 0
 answer = input('Welcome! Would you like to reach the moon (yes - no)? :').strip
-while answer.isdigit() or answer != 'yes' or answer != 'no':
+while answer not in ['yes', 'no']:
     answer = input('Welcome! Would you like to reach the moon (yes - no)? :')
 
 if answer == 'yes':
