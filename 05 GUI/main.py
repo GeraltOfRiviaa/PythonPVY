@@ -40,16 +40,20 @@ class App:
     def magic_barcode(self, min:int, max:int) -> None:
         self.clear_bg()
         self.canvas.config(bg="white")
-        
+        w,h, = self._get_canvas_size()
         
         x = 0
         while x < 800:
             
             width = self.random.randint(min, max)
             color = f"#{random.randint(0,0xffffff):06x}"
-            self.canvas.create_line(x,0,x,600, fill=color, width=width)
+            self.canvas.create_line(x,0,x,w, fill=color, width=width)
             x += width
         
+    def _get_canvas_size(self) -> tuple:
+        w = self.canvas.winfo_width() or self.root.winfo_width or 600
+        h = self.canvas.winfo_height() or self.root.winfo_height
+        return w,h    
     def run(self):
         self.root.mainloop()
 
