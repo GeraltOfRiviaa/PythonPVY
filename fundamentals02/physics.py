@@ -6,11 +6,30 @@ V Pythonu jsou konstanty obvykle deklarovány a přiřazovány v modulu, který 
 Konstanty jsou pojmenovány velkými písmeny a jednotlivá slova jsou oddělována podtržítky.
 '''
 
-EARTH_GRAVITY = 0 #? normální pozemské tíhové zrychlení
-MOON_GRAVITY = 0 #? měsíční gravitace
-SPEED_OF_LIGHT = 0 #? rychlost světla ve vakuu
-SPEED_OF_SOUND = 0 #? rychlost zvuku při teplotě 20 °C v suchém vzduchu
+EARTH_GRAVITY = 9.80665 #? normální pozemské tíhové zrychlení
+MOON_GRAVITY = 1.622 #? měsíční gravitace 
+SPEED_OF_LIGHT = 299792458 #? rychlost světla ve vakuu 
+SPEED_OF_SOUND = 343 #? rychlost zvuku při teplotě 20 °C v suchém vzduchu 
 
+def earth_to_moon_weight(weight: int): 
+    '''
+    Calculates how much would you weight if you were on the moon 
+    '''
+    return (weight / EARTH_GRAVITY) * MOON_GRAVITY
+
+def km_per_hour_to_speed_of_light(km: int):
+    '''
+    Returns the percentage of the speed of light you entered in km/h
+    i.e. if I entered 100 km/h I would be going 0.000000033% speed of light
+    '''
+    return 100 * (km / SPEED_OF_LIGHT)
+
+def broke_sound_barier(km: int):
+    '''
+    Calculates how many times did you broke the sound barier
+    based on km/h
+    '''
+    return f"{(km/SPEED_OF_SOUND)} times" if km > SPEED_OF_SOUND else "0 times"
 ''' 
 Úkol:
 1. Doplňte správně hodnoty uvedených konstant.
