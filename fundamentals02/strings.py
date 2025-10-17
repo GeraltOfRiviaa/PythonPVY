@@ -37,7 +37,7 @@ message = '''
 
        Andrej
 '''
-# print(message)
+print(message)
 
 # Funkce len vrací délku řetězce
 # print(len(message))
@@ -52,7 +52,7 @@ které oddělíme dvojtečkou:
 '''
 
 # Vypíše 4. znak z řetězce
-# print(course_name[3])
+print(course_name[3])
 
 '''
 Důležité je si zapamatovat, že slice indexy ukazují mezi znaky, přičemž levá hrana prvního znaku má číslo 0 
@@ -68,9 +68,9 @@ Na prvním řádku jsou uvedeny všechny možné slice-indexy 0...5 v řetězci 
 '''
 
 # Vypíše poslední znak z řetězce
-# print(course_name[-1])
+print(course_name[-1])
 # Vypíše vše od 2. do 4. znaku (bez něj)
-# print(course_name[1:3])
+print(course_name[1:3])
 
 '''
 Slice indexy mají specifické vlastnosti. Vynecháme-li první index, je za něj automaticky dosazena nula (začátek řetězce). 
@@ -78,19 +78,19 @@ Při neuvedení druhého indexu se použije délka řetězce (čili konec řetě
 '''
 
 # Vypíše vše od 2. znaku
-# print(course_name[1:])
+print(course_name[1:])
 # Vypíše vše od 2. znaku do předposledního
-# print(course_name[1:-1])
+print(course_name[1:-1])
 # Vypíše 3 znaky od začátku
-# print(course_name[:3])
+print(course_name[:3])
 
 '''
 Další vlastností slice indexů je jejich automatické "zarovnávání" na rozměr řetězce. 
 Je-li totiž index použitý ve slice konstrukci příliš velký, je nahrazen délkou řetězce. 
 '''
-# print(course_name[1:50])
+print(course_name[1:50])
 # Pokud je dolní index větší než horní, je výsledkem prázdný řetězec:
-# print(course_name[2:1])
+print(course_name[2:1])
 
 first_name = "Donald  "
 second_name = "  Trump"
@@ -98,7 +98,7 @@ second_name = "  Trump"
 # print(first_name + second_name)
 
 # Opakování řetězců
-# print(first_name + second_name * 3)
+print(first_name + second_name * 3)
 
 '''
 Řetězce v jazyce Python nelze měnit. Pokusíme-li se změnit určitou pozici v řetězci, dojde k chybě.
@@ -158,3 +158,7 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+datum = "12. 10. 2020"
+print(datum[8:] + "-" + datum[4:6] + "-" + datum[:2])
+
+
