@@ -15,21 +15,21 @@ def earth_to_moon_weight(weight: int):
     '''
     Calculates how much would you weight if you were on the moon 
     '''
-    return (weight / EARTH_GRAVITY) * MOON_GRAVITY
+    return (int(weight) / EARTH_GRAVITY) * MOON_GRAVITY
 
 def km_per_hour_to_speed_of_light(km: int):
     '''
     Returns the percentage of the speed of light you entered in km/h
     i.e. if I entered 100 km/h I would be going 0.000000033% speed of light
     '''
-    return 100 * (km / SPEED_OF_LIGHT)
+    return 100 * (int(km) / SPEED_OF_LIGHT)
 
 def broke_sound_barier(km: int):
     '''
     Calculates how many times did you broke the sound barier
     based on km/h
     '''
-    return f"{(km/SPEED_OF_SOUND)} times" if km > SPEED_OF_SOUND else "0 times"
+    return f"{(int(km)/SPEED_OF_SOUND)} times" if int(km) > SPEED_OF_SOUND else "0 times"
 ''' 
 Úkol:
 1. Doplňte správně hodnoty uvedených konstant.
