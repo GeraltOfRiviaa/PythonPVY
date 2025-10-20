@@ -1,3 +1,4 @@
+import unicodedata
 # Znakové řetězce mohou být uvozeny jednoduchými i dvojitými uvozovkami
 course_name = "Python programming"
 
@@ -158,7 +159,18 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+
+def snake_case(message):
+   nfd = unicodedata.normalize('NFD', message)
+   message = ''.join(char for char in nfd if unicodedata.category(char) != 'Mn')
+   
+   temp = message.lower().split(' ')
+   output = '_'.join(temp)
+   print(output)
+   
 datum = "12. 10. 2020"
 print(datum[8:] + "-" + datum[4:6] + "-" + datum[:2])
+snake_case('To je proměnná v Pythonu')
+
 
 
