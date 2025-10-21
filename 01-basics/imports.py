@@ -11,20 +11,23 @@ Připojení modulů provádíme klíčovým slovem import.
 '''
 Příklad importu modulu math. V tomto případě můžeme pomocí tečkového operátoru využít všechny atributy a funkce,
 které nám modul math nabízí.
+import camelcase
+c = camelcase.CamelCase() # Konstruktor třídy CamelCase() vytvoří objekt v proměnné c
+txt = 'ahoj světáku'
+print(c.hump(txt)) # Metoda hump() přeformátuje předaný řetězec podle zásad camel syntaxe (velká první písmena slov)
+
 '''
-import math
-print(math.pi)
-print('Goniometrické funkce: sin 45° = {}, cos 45° = {}'.format(math.sin(45), math.cos(45)))
 
 '''
 Příklad importu modulu sys a jedné jeho funkce path. Použijeme k tomu konstrukci:
 from jméno_modulu import jméno_funkce
 '''
 
+
+'''
 from sys import path
 print(path) # Zobrazuje seznam (list) cest k adresářům, které aplikace využívá
 
-'''
 Moduly math a sys patří k interním modulům, jež jsou součástí standardní instalace Pythonu.
 Externí moduly jsou distribuovány systémem balíčků (packages) a musí být instalovány pomocí nástroje pip.
 
@@ -59,12 +62,13 @@ pip install -r requirements.txt
 # V konzoli virtuálního prostředí proveďte instalaci externího balíčku camelcase
 # (venv) E:\python\projekt\venv>pip install camelcase
 # Poté tento balíček importujte
+
+"""
 import camelcase
 c = camelcase.CamelCase() # Konstruktor třídy CamelCase() vytvoří objekt v proměnné c
 txt = 'ahoj světáku'
 print(c.hump(txt)) # Metoda hump() přeformátuje předaný řetězec podle zásad camel syntaxe (velká první písmena slov)
 
-"""
 Cvičení 4:
 
 Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tomu, abyste: 
@@ -76,3 +80,34 @@ Použijte vhodné moduly v Pythonu (včetně jejich případné instalace) k tom
 K řešení prvního úkolu je možné doporučit importovat interní modul datetime
 Řešení dalších dvou úkolů můžete odvodit z příkladů v dokumentaci k externímu modulu dateutil - viz https://pypi.org/project/python-dateutil/
 """
+
+from dateutil import easter
+import datetime
+
+now = datetime.datetime.now()
+print(now)
+
+print('\n')
+
+print('easter-dates ')
+print('---------------------')
+
+for i in range(5):
+    print(easter.easter(now.year + i))
+
+print('\n')
+
+def next_christmas_on_weekday(start_year, weekday):
+    """
+    weekday: Monday=0 .. Sunday=6 (same as datetime.weekday())
+    """
+    year = start_year
+    while True:
+        if datetime.date(year, 12, 25).weekday() == weekday:
+            return year
+        year += 1
+
+
+closest_friday_christmas = next_christmas_on_weekday(now.year, 4)
+print(f"Closest year when Christmas is on Friday: {closest_friday_christmas}")
+

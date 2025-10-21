@@ -159,10 +159,28 @@ funkční kód, tím lepší).
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
-
-def snake_case(message):
+def camel_case(message: str):
+   #Převede české písmenka na anglické
    nfd = unicodedata.normalize('NFD', message)
-   message = ''.join(char for char in nfd if unicodedata.category(char) != 'Mn')
+   message = ''.join(ch for ch in nfd if unicodedata.category(ch) != 'Mn')
+   print(message)
+   temp = message.lower().split(' ')
+   
+   for i in range(len(temp)):
+      temp[i] = temp[i].capitalize()
+   
+   temp[0] = temp[0].lower()
+   output = ''.join(temp)
+   print(output)
+
+def snake_case(message: str):
+
+   #Převede české písmenka na anglické
+  
+   nfd = unicodedata.normalize('NFD', message)  #nfd má v sobě rozděleny jednotlivé písmenka a jejich čárky/háčky
+   message = ''.join(char for char in nfd if unicodedata.category(char) != 'Mn') 
+   #budou procházet všechny charaktery v nfd a pokud to není háček nebo čárka, tak se přidá do message na nové místo v paměti 
+   #Mn znamená mark a nonspacing, je to categorie pro specificky háčky, čárky a jiné znaky v unicode
    
    temp = message.lower().split(' ')
    output = '_'.join(temp)
@@ -171,6 +189,6 @@ def snake_case(message):
 datum = "12. 10. 2020"
 print(datum[8:] + "-" + datum[4:6] + "-" + datum[:2])
 snake_case('To je proměnná v Pythonu')
-
+camel_case('To je proměnná v Pythonu')
 
 
